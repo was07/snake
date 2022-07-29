@@ -1,5 +1,3 @@
-from msilib.schema import SelfReg
-from operator import le
 import pygame
 import random
 
