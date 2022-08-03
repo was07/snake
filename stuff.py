@@ -104,7 +104,8 @@ class Game:
         self.points = 0
         self.run = True
 
-        self._font = pygame.font.SysFont('Sans Sherif', 30)
+        self.counter_font = pygame.font.SysFont('Consolas', 30)
+        self.show_font = pygame.font.SysFont('Consolas', 60)
     
     def update(self):
         if not self.run: return
@@ -125,9 +126,11 @@ class Game:
         self.food.update(self.updates_count)
 
         if snake_status == 1:  # game over
-            self.screen.fill((20, 20, 30))  # making the screen lighter for freezing effect
+            self.screen.fill((30, 30, 50))  # making the screen lighter for freezing effect
             self.food.color = '#990000'  # ^
             self.run = False  # stopping updates
+            text = self.show_font.render(f"{self.points}", True, "#ff1c2f")
+            self.screen.blit(text, (20, 20))
             return
         
         self.screen.fill((0, 0, 0))
@@ -136,7 +139,7 @@ class Game:
         self.snake.draw()  # draw snake
         self.food.draw()  # draw food
         if self.run:
-            text = self._font.render(f'{self.points}', True, '#FFFFFF')
+            text = self.counter_font.render(f'{self.points}', True, '#FFFFFF')
             self.screen.blit(text, (20, 20))  # draw points
 
         pygame.display.flip()
