@@ -7,4 +7,4 @@ My attempt at making the classic snake game
 
 ## Controls
 - Arrow key to move
-- space to pause/unpause
+- Space to pause/unpause
