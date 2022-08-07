@@ -114,7 +114,7 @@ class Game:
         d = self.snake.direction
         sx, sy = self.snake.head_xy()
 
-        if (sx + d[0], sy + d[1]) == (self.food.x, self.food.y):  # food eaten
+        if (sx, sy) == (self.food.x, self.food.y):  # food eaten
             snake.grow()
             snake.tail_length += 1
 
