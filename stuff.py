@@ -105,7 +105,7 @@ class Game:
         self.run = True
 
         self.counter_font = pygame.font.SysFont('Consolas', 30)
-        self.show_font = pygame.font.SysFont('Consolas', 60)
+        self.bigger_font = pygame.font.SysFont('Consolas', 60)
     
     def update(self):
         if not self.run: return
@@ -129,8 +129,10 @@ class Game:
             self.screen.fill((30, 30, 50))  # making the screen lighter for freezing effect
             self.food.color = '#990000'  # ^
             self.run = False  # stopping updates
-            text = self.show_font.render(f"{self.points}", True, "#ff1c2f")
+            text = self.bigger_font.render(f"{self.points}", True, "#ffffff")
             self.screen.blit(text, (20, 20))
+            text = self.bigger_font.render(f":(", True, "#ff1c2f")
+            self.screen.blit(text, (80, 20))
             return
         
         self.screen.fill((0, 0, 0))
